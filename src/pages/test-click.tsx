@@ -15,6 +15,19 @@ export default function TestClick() {
       >
         Go to Next Bank App
       </a>
+      <a
+        href="intent://www.nextbank.com.tw/app"
+        style={{
+          display: 'inline-block',
+          padding: '10px 20px',
+          backgroundColor: '#0070f3',
+          color: 'white',
+          textDecoration: 'none',
+          borderRadius: '5px',
+        }}
+      >
+        Android Go to Next Bank App
+      </a>
     </div>
   );
 }
