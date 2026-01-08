@@ -1,5 +1,6 @@
 export default function TestClick() {
   return (
+    <>
     <div style={{ padding: '2rem' }}>
       <h1>Test Click Page</h1>
       <a
@@ -15,8 +16,11 @@ export default function TestClick() {
       >
         Go to Next Bank App
       </a>
+     
+    </div>
+    <div style={{ padding: '2rem' }}>
       <a
-        href="intent://www.nextbank.com.tw/app"
+          href={`intent://www.nextbank.com.tw/app#Intent;scheme=https;package=com.nextbank.ncbportal;S.browser_fallback_url=${encodeURIComponent("https://ebank.nextbank.com.tw/nextuseraccountloan")};end`}
         style={{
           display: 'inline-block',
           padding: '10px 20px',
@@ -29,5 +33,6 @@ export default function TestClick() {
         Android Go to Next Bank App
       </a>
     </div>
+    </>
   );
 }
