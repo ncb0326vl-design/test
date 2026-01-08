@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 
 export default function TestServerSide() {
-  return null;
+  return <div>server side</div>;
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
