@@ -20,7 +20,7 @@ export default function TestClick() {
     </div>
     <div style={{ padding: '2rem' }}>
       <a
-          href={`intent://www.nextbank.com.tw/app#Intent;scheme=https;package=com.nextbank.ncbportal;S.browser_fallback_url=${encodeURIComponent("https://ebank.nextbank.com.tw/nextuseraccountloan")};end`}
+          href={`intent://www.nextbank.com.tw/app#Intent;scheme=https;package=com.nextbank.ncbportal;S.browser_fallback_url=${encodeURIComponent("https://www.nextbank.com.tw/app")};end`}
         style={{
           display: 'inline-block',
           padding: '10px 20px',
