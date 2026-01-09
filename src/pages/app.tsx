@@ -1,10 +1,24 @@
 import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const App = ({ domain }: {domain: string}) => {
   const { query } = useRouter();
   const { deep, auto, invalid, action } = query;
+  const [device, setDevice] = useState("");
+  
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod/.test(userAgent)) {
+      setDevice("ios");
+    }
+    if (/android/.test(userAgent)) {
+      setDevice("android");
+    }
+  }, []);
+
+  const isAndroid = device === "android";
+  const isIOS = device === "ios";
 
   const deepLink = useMemo(() => {
     const subdomain = domain || 'www';
@@ -14,10 +28,7 @@ const App = ({ domain }: {domain: string}) => {
     }
     return url;
   }, [action, domain]);
-
-  const userAgent = navigator.userAgent.toLowerCase();
-  const isIOS = /iphone|ipad|ipod/.test(userAgent);
-  const isAndroid = /android/.test(userAgent);
+  
 
   useEffect(() => {
     if (auto === '1' && isAndroid) {
@@ -39,7 +50,7 @@ const App = ({ domain }: {domain: string}) => {
 
     return `https://${deepLink}&invalid=1`;
   }, [isAndroid, isIOS, deepLink]);
-
+  
   return <div>
     {invalid === '1' || deep !== '1' ? (
       <div>
